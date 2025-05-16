@@ -1,21 +1,15 @@
-# skript-reflect
+# skript-reflect-folia
 
-This fork of [skript-mirror](https://github.com/btk5h/skript-mirror) aims to fix
-multiple issues that I believe have been present for too long, and implement some long-wanted features.
+This is a fork of [Skript-Reflect]() to be used on Folia.
+If you're not running a Folia server, this fork has no use for you.
 
-Documentation: https://tpgamesnl.gitbook.io/skript-reflect
+# Requirements:
+- A [**Folia**](https://papermc.io/software/folia) server.
+- [**SkriptFolia**](https://github.com/ShaneBeee/SkriptFolia/) (Normal Skript will not work on Folia)
+- Java 21+
 
-Source code: https://github.com/TPGamesNL/skript-reflect
+# Info:
+Please see the [**SkriptFolia Wiki**](https://github.com/ShaneBeee/SkriptFolia/wiki) for more details regarding running Skript on Folia.
 
-Downloads: [releases](https://github.com/TPGamesNL/skript-reflect/releases) or
-[actions](https://github.com/TPGamesNL/skript-reflect/actions?query=event%3Apush+is%3Asuccess+actor%3ATPGamesNL) \(not stable\)
-
-Discord: https://discord.gg/jDW8UbD
-
-## What's been changed in this fork:
-* Added custom events
-* Support for more Java versions \(Java 13+, OpenJ9\)
-* Support for listening to asynchronous events
-* Class proxy fixes + documentation
-* Fixed multiple issues with local variables
-* \+ much more
+# Download:
+You can find builds in the [**Releases**](https://github.com/ShaneBeee/skript-reflect-folia/releases) tab.
