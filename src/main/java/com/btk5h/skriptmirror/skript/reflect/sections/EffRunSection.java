@@ -9,6 +9,7 @@ import ch.njol.skript.lang.ExpressionList;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.TriggerItem;
 import ch.njol.skript.lang.Variable;
+import ch.njol.skript.util.region.TaskUtils;
 import ch.njol.util.Kleenean;
 import com.btk5h.skriptmirror.SkriptMirror;
 import com.btk5h.skriptmirror.util.SkriptReflection;
@@ -143,9 +144,9 @@ public class EffRunSection extends Effect {
 
   private void runTask(Runnable task, boolean async) {
     if (async)
-      Bukkit.getScheduler().runTaskAsynchronously(SkriptMirror.getInstance(), task);
+      TaskUtils.getGlobalScheduler().runTaskAsync( task);
     else
-      Bukkit.getScheduler().runTask(SkriptMirror.getInstance(), task);
+      TaskUtils.getGlobalScheduler().runTask( task);
   }
 
 }
