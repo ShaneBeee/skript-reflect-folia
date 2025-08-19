@@ -6,6 +6,7 @@ import ch.njol.skript.lang.Effect;
 import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.TriggerItem;
+import ch.njol.skript.util.region.TaskUtils;
 import ch.njol.util.Kleenean;
 import com.btk5h.skriptmirror.SkriptMirror;
 import com.btk5h.skriptmirror.skript.reflect.ExprJavaCall;
@@ -44,7 +45,7 @@ public class EffExpressionStatement extends Effect {
         SkriptReflection.putLocals(localVariables, e);
         execute(e);
       }, threadPool)
-        .thenAccept(res -> Bukkit.getScheduler().runTask(SkriptMirror.getInstance(), () -> {
+        .thenAccept(res -> TaskUtils.getGlobalScheduler().runTask(() -> {
           if (getNext() != null)
             TriggerItem.walk(getNext(), e);
 

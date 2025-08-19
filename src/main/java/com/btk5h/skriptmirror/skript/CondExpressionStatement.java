@@ -8,6 +8,7 @@ import ch.njol.skript.lang.Expression;
 import ch.njol.skript.lang.SkriptParser;
 import ch.njol.skript.lang.TriggerItem;
 import ch.njol.skript.log.SkriptLogger;
+import ch.njol.skript.util.region.TaskUtils;
 import ch.njol.util.Kleenean;
 import com.btk5h.skriptmirror.ObjectWrapper;
 import com.btk5h.skriptmirror.SkriptMirror;
@@ -55,7 +56,7 @@ public class CondExpressionStatement extends Condition {
         SkriptReflection.putLocals(localVariables, e);
         check(e);
       }, threadPool)
-        .thenAccept(res -> Bukkit.getScheduler().runTask(SkriptMirror.getInstance(), () -> {
+        .thenAccept(res -> TaskUtils.getGlobalScheduler().runTask( () -> {
           if (getNext() != null)
             TriggerItem.walk(getNext(), e);
 
