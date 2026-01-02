@@ -1,41 +1,33 @@
 import org.apache.tools.ant.filters.ReplaceTokens
 
 group 'com.btk5h.skript-mirror'
-version '2.6.1-folia-1'
+version '2.6.2'
 
 apply plugin: 'java'
 
 repositories {
-  mavenCentral()
-  maven {
-    url 'https://oss.sonatype.org/content/groups/public/'
-  }
-  maven {
-    url 'https://repo.destroystokyo.com/repository/maven-public/'
-  }
-  maven {
-    url 'https://repo.skriptlang.org/releases'
-  }
-  // Paper
-  maven { url 'https://repo.papermc.io/repository/maven-public/' }
-  // JitPack
-  maven { url 'https://jitpack.io' }
+	mavenCentral()
+	maven { url 'https://repo.papermc.io/repository/maven-public/' }
+	maven { url 'https://repo.skriptlang.org/releases' }
+	// JitPack
+	maven { url 'https://jitpack.io' }
 }
 
 processResources {
-  filter ReplaceTokens, tokens: [
-    "version": version
-  ]
+	filter ReplaceTokens, tokens: [
+		"version": version
+	]
 }
 
-compileJava   {
-  sourceCompatibility = '21'
-  targetCompatibility = '21'
-  options.encoding = 'UTF-8'
+java {
+	toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
 }
 
 dependencies {
-  implementation group: 'io.papermc.paper', name: 'paper-api', version: '1.21.5-R0.1-SNAPSHOT'
-  implementation group: 'com.github.ShaneBeee', name: 'SkriptFolia', version: '2.11.1-folia-1'
-  implementation 'org.eclipse.jdt:org.eclipse.jdt.annotation:1.1.0'
+	compileOnly group: 'io.papermc.paper', name: 'paper-api', version: '1.21.10-R0.1-SNAPSHOT'
+	compileOnly group: 'com.github.ShaneBeee', name: 'SkriptFolia', version: '2.14.0-pre1'
 }
