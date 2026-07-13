@@ -1,6 +1,6 @@
 # skript-reflect-folia
 
-This is a fork of [Skript-Reflect]() to be used on Folia.
+This is a fork of [Skript-Reflect](https://github.com/SkriptLang/skript-reflect) to be used on Folia.
 If you're not running a Folia server, this fork has no use for you.
 
 # Requirements:
